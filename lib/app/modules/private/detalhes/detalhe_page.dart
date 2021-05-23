@@ -102,6 +102,16 @@ class _DetalhesPageState extends ModularState<DetalhesPage, DetalheController> {
                   .toList(),
             ),
           ),
+          Divider(),
+          _criaContainerConteudo(
+            'Events :',
+            color: Colors.black38,
+            child: Wrap(
+              children: widget.character.events.items
+                  .map((e) => Text(e.name, style: TextStyle(color: Colors.red),))
+                  .toList(),
+            ),
+          ),
         ],
       ),
     );

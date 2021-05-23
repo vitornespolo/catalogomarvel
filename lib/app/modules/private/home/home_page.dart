@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+String filterText = "";
+
 class _HomePageState extends ModularState<HomePage, HomeController> {
   final AuthController authController = Modular.get();
 
@@ -24,7 +26,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Scaffold(
         drawer: Drawer(
           child: Column(
-            children: [
+            children: <Widget>[
               UserAccountsDrawerHeader(
                 currentAccountPicture: ClipRRect(
                   borderRadius: BorderRadius.circular(40),
@@ -50,12 +52,59 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   Modular.to.navigate('/public/splash', replaceAll: true);
                 },
               ),
+              ListTile(
+                leading: Icon(Icons.favorite),
+                title: Text('Favoritos'),
+                subtitle: Text('Herois favoritos'),
+                onTap: () {
+                  Modular.to.navigate('/private/favorite', replaceAll: true);
+                },
+              ),
             ],
           ),
         ),
-        appBar: AppBar(
-          title: Text('Sessão de Herois'),
+        appBar: PreferredSize(
+        preferredSize: Size(50, 50),
+        child: Observer(
+          builder: (_) {
+            return AppBar(
+              title: controller.mostrarFilter
+                  ? TextField(
+                      onChanged: controller.setQuery,
+                      textInputAction: TextInputAction.go,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Buscar Heroi',
+                      ),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      ),
+                    )
+                  : Text('Herois Marvel'),
+              backgroundColor: Colors.redAccent,
+              actions: [
+                IconButton(
+                  icon: controller.mostrarIcon
+                      ? Icon(Icons.search)
+                      : Icon(Icons.cancel),
+                  onPressed: () {
+                    print(controller.mostrarIcon);
+                    print(controller.mostrarFilter);
+                    if (controller.mostrarFilter == false) {
+                      controller.alterarMostrarFilter(true);
+                      controller.alterarMostrarIcon(false);
+                    } else {
+                      controller.alterarMostrarFilter(false);
+                      controller.alterarMostrarIcon(true);
+                    }
+                  },
+                ),
+              ],
+            );
+          },
         ),
+      ),
         body: Container(
           color: Colors.grey[300],
           child: _criaListaHerois(),
@@ -70,9 +119,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         );
       } else {
         return ListView.builder(
-          itemCount: controller.characterDataWrapper?.data.results.length,
+          itemCount: controller.characterFiltereds.length,
           itemBuilder: (context, i) => HeroCard(
-            character: controller.characterDataWrapper?.data.results[i],
+            character: controller.characterFiltereds[i],
           ),
         );
       }

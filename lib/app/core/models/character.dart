@@ -4,6 +4,7 @@ import 'package:marvelcatalogo/app/core/models/thumbnail.dart';
 import 'package:marvelcatalogo/app/core/models/urls.dart';
 
 import 'comic_list.dart';
+import 'event_list.dart';
 
 class Character {
   int id;
@@ -14,6 +15,7 @@ class Character {
   List<Urls> urls;
   Thumbnail thumbnail;
   ComicList comics;
+  EventList events;
 
   Character({
     required this.id,
@@ -24,6 +26,7 @@ class Character {
     required this.urls,
     required this.thumbnail,
     required this.comics,
+    required this.events,
   });
 
   Map<String, dynamic> toMap() {
@@ -49,6 +52,7 @@ class Character {
       urls: List<Urls>.from(map['urls']?.map((x) => Urls.fromMap(x))),
       thumbnail: Thumbnail.fromMap(map['thumbnail']),
       comics: ComicList.fromMap(map['comics']),
+      events: EventList.fromMap(map['events']),
     );
   }
 
