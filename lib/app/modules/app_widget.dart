@@ -6,7 +6,6 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Caltálogo Marvel',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
