@@ -91,7 +91,8 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        Modular.to.pushNamed('/public/login');
+                        Modular.to.navigate('/private/home', replaceAll: true);
+                        //Modular.to.pushNamed('/public/login');
                       },
                       child: Text('Entrar'),
                       style: ButtonStyle(
@@ -108,26 +109,28 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10,),
-                    OutlinedButton(
-                      onPressed: () {
-                        Modular.to.pushNamed('/public/register');
-                      },
-                      child: Text('Cadastrar-se'),
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(
-                                width: 0,
-                                style: BorderStyle.none,
-                              )),
-                        ),
-                      ),
-                    )
+                    SizedBox(
+                      height: 10,
+                    ),
+                    // OutlinedButton(
+                    //   onPressed: () {
+                    //     Modular.to.pushNamed('/public/register');
+                    //   },
+                    //   child: Text('Cadastrar-se'),
+                    //   style: ButtonStyle(
+                    //     backgroundColor:
+                    //         MaterialStateProperty.all<Color>(Colors.white),
+                    //     shape:
+                    //         MaterialStateProperty.all<RoundedRectangleBorder>(
+                    //       RoundedRectangleBorder(
+                    //           borderRadius: BorderRadius.circular(10.0),
+                    //           side: BorderSide(
+                    //             width: 0,
+                    //             style: BorderStyle.none,
+                    //           )),
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               ),

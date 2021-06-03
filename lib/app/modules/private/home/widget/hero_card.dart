@@ -25,7 +25,7 @@ class HeroCard extends StatelessWidget {
                 MyHeroWidget(
                   tag: character!.id,
                   child: Ink.image(
-                    height: 400,
+                    height: 300,
                     image: NetworkImage(character!.thumbnail.caminhoCompleto),
                     fit: BoxFit.fitWidth,
                   ),
@@ -51,7 +51,7 @@ class HeroCard extends StatelessWidget {
       left: 0,
       right: 0,
       child: Container(
-        color: Colors.black.withOpacity(0.8),
+        color: Colors.black.withOpacity(0.9),
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         child: Text(
           name,
