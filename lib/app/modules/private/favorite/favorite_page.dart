@@ -32,6 +32,7 @@ class _FavoritePageState
               itemCount: controller.characterFavorited.length,
               itemBuilder: (context, index) => HeroCard(
                 character: controller.characterFavorited[index],
+                refrash: controller.refrashList,
               ),
             );
           }

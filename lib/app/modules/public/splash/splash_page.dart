@@ -109,9 +109,6 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
                     // OutlinedButton(
                     //   onPressed: () {
                     //     Modular.to.pushNamed('/public/register');

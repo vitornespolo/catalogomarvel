@@ -11,7 +11,8 @@ class FavoriteRepository implements IFavoriteRepository {
     QuerySnapshot querySnapshot =
         await this.firebaseFirestore.collection('favoritos').get();
     return querySnapshot.docs
-        .map((QueryDocumentSnapshot doc) => FavoriteHero.fromMap(doc.data()))
+        .map((QueryDocumentSnapshot doc) =>
+            FavoriteHero.fromMap(doc.data(), doc.id))
         .toList();
   }
 
@@ -21,5 +22,10 @@ class FavoriteRepository implements IFavoriteRepository {
         .firebaseFirestore
         .collection('favoritos')
         .add(favoriteHero.toMap());
+  }
+
+  @override
+  Future<void> delete(String id) async {
+    await this.firebaseFirestore.collection('favoritos').doc(id).delete();
   }
 }

@@ -16,6 +16,8 @@ class Character {
   Thumbnail thumbnail;
   ComicList comics;
   EventList events;
+  bool favorited = false;
+  String? favoritedFirebaseId;
 
   Character({
     required this.id,

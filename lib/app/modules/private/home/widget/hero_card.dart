@@ -1,13 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:marvelcatalogo/app/core/models/character.dart';
+import 'package:marvelcatalogo/app/core/models/favorite_hero.dart';
 import 'package:marvelcatalogo/app/core/widgets/my_hero_widget.dart';
+import 'package:marvelcatalogo/app/repositories/favorite/favorite_repository.dart';
+import 'package:marvelcatalogo/app/repositories/favorite/favorite_repository_interface.dart';
 
 class HeroCard extends StatelessWidget {
   final Character? character;
+  final IFavoriteRepository favoriteRepository =
+      FavoriteRepository(firebaseFirestore: FirebaseFirestore.instance);
+  final Function refrash;
 
-  const HeroCard({Key? key, required this.character}) : super(key: key);
+  HeroCard({Key? key, required this.character, required this.refrash})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +89,19 @@ class HeroCard extends StatelessWidget {
     return ButtonBar(
       children: [
         IconButton(
-          icon: Icon(Icons.favorite),
+          color: character!.favorited ? Colors.red : Colors.grey,
+          icon: Icon(Icons.favorite_border),
           onPressed: () {
+            if (character!.favorited) {
+              favoriteRepository.delete(character!.favoritedFirebaseId!);
+              print(character!.favoritedFirebaseId);
+              print('desfavoritou');
+            } else {
+              favoriteRepository
+                  .save(FavoriteHero(favoriteHeroId: character!.id));
+            }
             print('Favoritou');
+            refrash();
           },
         )
       ],

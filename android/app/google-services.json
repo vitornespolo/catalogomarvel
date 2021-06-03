@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "248821686635",
-    "project_id": "marvelheros-13b62",
-    "storage_bucket": "marvelheros-13b62.appspot.com"
+    "project_number": "159725976209",
+    "project_id": "trabalhomarvel-d8870",
+    "storage_bucket": "trabalhomarvel-d8870.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:248821686635:android:351588356b1a8e6df42c2e",
+        "mobilesdk_app_id": "1:159725976209:android:3fd6f32a62dba687465d30",
         "android_client_info": {
           "package_name": "br.edu.unidep.computacaomovel.marvelcatalogo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "248821686635-jkl4mnk3blb60kp79fpuqk9q4ig7ikq2.apps.googleusercontent.com",
+          "client_id": "159725976209-gniqgbo8oloqgpa609f5ift0g75g42lv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "br.edu.unidep.computacaomovel.marvelcatalogo",
-            "certificate_hash": "f8246565f949f3c223ddbb35210734fc5862f44b"
+            "certificate_hash": "ddb6042ed83d47571027259bb22d2b6566d39f89"
           }
         },
         {
-          "client_id": "248821686635-rhokb4l5va5a74rgo5ua312uptp92i1i.apps.googleusercontent.com",
+          "client_id": "159725976209-1656unrhs8avd112huo024fj1p5lciej.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAbJvSSLE17TodRN215fvwhgxDQD7kR3P0"
+          "current_key": "AIzaSyCaCyG0ifoZQpHnD3KWKB_9yS3WrKnNEAc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "248821686635-rhokb4l5va5a74rgo5ua312uptp92i1i.apps.googleusercontent.com",
+              "client_id": "159725976209-1656unrhs8avd112huo024fj1p5lciej.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

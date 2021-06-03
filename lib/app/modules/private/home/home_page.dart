@@ -42,16 +42,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         onChanged: controller.setQuery,
                         textInputAction: TextInputAction.go,
                         decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Buscar Heroi',
-                        ),
+                            border: InputBorder.none,
+                            hintText: 'Buscar Heroi',
+                            hintStyle: TextStyle(color: Colors.red)),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
                         ),
                       )
-                    : Text('Herois Marvel'),
-                backgroundColor: Colors.redAccent,
+                    : Text(
+                        'Herois Marvel',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                backgroundColor: Colors.black,
                 actions: [
                   IconButton(
                     icon: controller.mostrarIcon
@@ -80,13 +83,32 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               color: Colors.grey[300],
               child: _criaListaHerois(),
             ),
-            Center(
-              child: Text("Favoritos"),
+            Container(
+              color: Colors.grey[300],
+              child: _criaListaHeroisFavoritos(),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Widget _criaListaHeroisFavoritos() {
+    return Observer(builder: (_) {
+      if (controller.carregando || controller.characterDataWrapper == null) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      } else {
+        return ListView.builder(
+          itemCount: controller.favoritosList.length,
+          itemBuilder: (context, i) => HeroCard(
+            character: controller.favoritosList[i],
+            refrash: controller.refrashList,
+          ),
+        );
+      }
+    });
   }
 
   Widget _criaListaHerois() {
@@ -100,6 +122,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           itemCount: controller.characterFiltereds.length,
           itemBuilder: (context, i) => HeroCard(
             character: controller.characterFiltereds[i],
+            refrash: controller.refrashList,
           ),
         );
       }

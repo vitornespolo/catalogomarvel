@@ -52,7 +52,9 @@ abstract class _FavoriteControllerBase with Store {
     print(list[0].id);
     for (var favorite in id) {
       for (var hero in list) {
-        if (favorite.id == hero.id) {
+        if (favorite.favoriteHeroId == hero.id) {
+          hero.favoritedFirebaseId = favorite.id;
+          hero.favorited = true;
           listFavorite.add(hero);
         }
       }
@@ -61,4 +63,7 @@ abstract class _FavoriteControllerBase with Store {
     print(listFavorite);
     this.loading = false;
   }
+
+  @action
+  void refrashList() => getCharacterDataWrapper();
 }
