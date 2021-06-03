@@ -90,7 +90,7 @@ class HeroCard extends StatelessWidget {
       children: [
         IconButton(
           color: character!.favorited ? Colors.red : Colors.grey,
-          icon: Icon(Icons.favorite_border),
+          icon: Icon(Icons.favorite),
           onPressed: () {
             if (character!.favorited) {
               favoriteRepository.delete(character!.favoritedFirebaseId!);

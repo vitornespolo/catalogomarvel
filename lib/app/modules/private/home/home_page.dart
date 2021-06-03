@@ -33,7 +33,11 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 bottom: TabBar(
                   tabs: <Widget>[
                     Tab(icon: Icon(Icons.home_outlined)),
-                    Tab(icon: Icon(Icons.favorite_border))
+                    Tab(
+                        icon: Icon(
+                      Icons.favorite_border,
+                      color: Colors.red,
+                    ))
                   ],
                 ),
                 // Campo de pesquisa no home
@@ -43,8 +47,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         textInputAction: TextInputAction.go,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Buscar Heroi',
-                            hintStyle: TextStyle(color: Colors.red)),
+                            hintText: 'Pesquisar ...',
+                            hintStyle: TextStyle(color: Colors.white)),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
@@ -54,7 +58,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         'Herois Marvel',
                         style: TextStyle(color: Colors.red),
                       ),
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.black87,
                 actions: [
                   IconButton(
                     icon: controller.mostrarIcon
